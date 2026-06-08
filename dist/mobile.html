@@ -1,739 +1,1320 @@
-<!doctype html>
-<html lang="en" dir="ltr" class="game-708 theme-35 is-Mobile portrait">
+<html lang="en" dir="ltr" class="is-mobile standart">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Divine Games: First Balloon</title>
-    <meta name="viewport"
-        content="width=device-width,height = device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        html,
-        body,
-        body.sidebars {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+  <base href="./" />
+  <meta charset="utf-8" />
+  <link rel="icon" href="Images/favicon.ico" />
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="./logo192.png" />
+  <title>React App</title>
+  <!-- <script defer="defer" src="src/js/main.4fcf72a4.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 
-        html {
-
-            overflow: hidden;
-        }
-
-        body {
-            background: black;
-        }
-
-        canvas {
-            background: #000;
-        }
-    </style>
-    <style>
-        .scroll-to-top {
-            background-color: white;
-            right: 40px;
-            bottom: 40px;
-            position: fixed;
-            z-index: 2;
-            cursor: pointer;
-            border-radius: 7px;
-            width: 40px;
-            height: 40px;
-            box-shadow: 0 9px 25px 0 rgba(132, 128, 177, 0.28);
-            border: none;
-        }
-
-        .scroll-to-top:active {
-            transform: matrix(0.95, 0, 0, 0.95, 0, 0);
-        }
-    </style>
-    <!-- <link rel="stylesheet" href="styles/942.b113de86.chunk.css"> -->
-
-  <script type="module" crossorigin src="/assets/mobile-DPWwmcc5.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/index-CSfxaEzb.js">
-  <link rel="stylesheet" crossorigin href="/assets/index-D8vNHSAc.css">
-  <link rel="stylesheet" crossorigin href="/assets/mobile-C6Pdim7d.css">
+  <script type="module" crossorigin src="/assets/mobile-Zi-h1Wcg.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/BlackSnowfall-B2dcVt0Q.js">
+  <link rel="stylesheet" crossorigin href="/assets/BlackSnowfall-CWb02WtN.css">
 </head>
 
-<body>
+<body class="expansion-alids-init">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="" class="root">
+    <div class="pgc-main-wrapper">
+      <div class="pgc-m-game-wrapper">
+        <div class="pgc-m-game-structure">
+          <div class="pgc-m-game-structure-top">
+            <div class="pgc-m-header">
+              <div class="pgc-left-m-header">
+                <!-- <div class="pgc-fairness-holder">
+                  <i class="icon-security"></i>
+                </div> -->
+                <div class="pgc-m-game-id-info">
+                  <p class="pgc-m-game-id-info-txt">Round ID</p>
+                  <p class="pgc-m-game-id-info-num roundID">0</p>
+                </div>
+              </div>
+              <div class="pgc-center-m-header">
+                <img src="Images/logo.bcea419e466a10f7cc77.png" alt="gameLogo" />
+              </div>
+              <div class="pgc-right-m-header">
+                <div class="pgc-new-lobby-container">
+                  <div class="pgc-m-game-txt-parent">
+                    <p class="pgc-m-game-bet-txt">Min - Max</p>
+                    <p class="pgc-m-game-bet-txt-num">
+                      <span class="pgc-m-game-bet-txt-num-txt">0.1 - 200 Fun</span>
+                    </p>
+                  </div>
+                  <div class="pgc-mobile-lobby-parent">
+                    <div class="pgc-mobile-lobby-inner">
+                      <div class="pgc-mobile-lobby-round">
+                        <i class="fa-solid fa-house" style="color: rgb(255, 255, 255)"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pgc-m-game-structure-middle">
+            <div class="pgc-notification-container">
+              <div class="pgc-notification error">
+                <i class="icon-error pgc-notification-icon"></i><span class="pgc-notification-text">Slow
+                  connection</span>
+              </div>
+            </div>
+            <div class="pgc-m-game-holder">
+              <div class="mob-game-wrapper">
+                <div class="pgc-game-holder">
+                  <div class="pgc-game-backside" id="canvas-container" style="
+                        transform: scale(1);
+                        left: 0;
+                        top: 0px;
+                      ">
+                    <!-- <canvas width="540" height="960" style="
+                          touch-action: none;
+                          width: 540px;
+                          height: 960px;
+                          background-color: rgba(255, 255, 255, 0.644);
+                        "></canvas> -->
+                  </div>
+                  <div class="game-container">
+                    <div class="game-wrapper">
+                      <div class="game-block">
+                        <div class="game-amount-block hidden">
+                          <span>x</span>
+                          <p>1.34</p>
+                        </div>
 
-    <div id="crash-games">
-        <div class="main-wrapper">
-            <div class="last-statistics-popup-layer hidden" id="historyPopup">
-                <div class="last-statistics-popup">
-                    <p class="last-statistics-popup-title">Last 500 results</p>
-                    <div class="close-popup-btn">
-                        <i class="fa-solid fa-xmark" style="font-size: x-large;" id="close-history-icon"></i>
+                        <div class="timing-progress-bar hidden">
+                          <div class="sphere-holder">
+                            <svg viewBox="0 0 150 150">
+                              <circle cx="75" cy="75" r="60" class="sphere"
+                                style="animation-duration: 6s; animation-delay: 0s;"></circle>
+                            </svg>
+                            <span class="progress-bar-time">2</span>
+                          </div>
+                          <div class="fireball-holder" style="animation-duration: 6s; animation-delay: 0s;"></div>
+                        </div>
+
+                        <div class="game-result hidden" style="animation-duration: 4s;">
+                          <h5 class="game-result-label">Game Result</h5>
+                          <p class="game-result-value">x4.16</p>
+                        </div>
+
+                        <div class="win-popup hidden" style="animation-duration: 4s">
+                          <h5 class="win-popup-label">WIN</h5>
+                          <p class="win-popup-value">x3.89</p>
+                        </div>
+
+
+                      </div>
+                      <div class="game-control-panel">
+                        <ul class="odd-list">
+                          <li class="odd-el green"><span>x1.23</span></li>
+                          <li class="odd-el blue"><span>x7.7</span></li>
+                          <li class="odd-el green"><span>x1.13</span></li>
+                          <li class="odd-el blue"><span>x5.4</span></li>
+                          <li class="odd-el green"><span>x1.25</span></li>
+                        </ul>
+                        <div class="bet-section">
+                          <div class="add-parent-block">
+                            <div class="bet-section-left leftBtn">
+                              <div class="bet-section-left-top-content left">
+                                <div class="bet-section-left-top-content-inner">
+                                  <div class="mob-hc-bet-action">
+                                    <div class="mob-hc-bet-action-left">
+                                      <div class="hc-bet-action">
+                                        <div class="hc-bet-calc-holder">
+                                          <button class="hc-bet-calc-btn left" id="decrement-bet-amt-left">
+                                            <span class="hc-bet-calc-btn-inner">
+                                              <i class="fa-solid fa-minus"></i>
+                                            </span>
+                                          </button>
+                                          <input class="hc-bet-calc-input" type="number" maxlength="9" inputmode="text"
+                                            readonly="" id="bet-amount-left" value="10" />
+                                          <button class="hc-bet-calc-btn right" id="increment-bet-amt-left">
+                                            <span class="hc-bet-calc-btn-inner">
+                                              <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hc-bet-actions centerActions bet-section-left-top-content-inner"
+                                  id="betAmtControls-left">
+                                  <div class="hc-bet-action" id="half-bet-amt-left">
+                                    <div class="hc-bet-action-content">
+                                      <p class="hc-bet-action-content-txt">
+                                        1/2
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="hc-bet-action" id="min-bet-amt-left">
+                                    <div class="hc-bet-action-content">
+                                      <p class="hc-bet-action-content-txt">
+                                        Min
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="hc-bet-action" id="max-bet-amt-left">
+                                    <div class="hc-bet-action-content">
+                                      <p class="hc-bet-action-content-txt">
+                                        Max
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="hc-bet-action" id="double-bet-amt-left">
+                                    <div class="hc-bet-action-content">
+                                      <p class="hc-bet-action-content-txt">
+                                        x2
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hc-bet-actions centerActions bet-section-left-top-content-inner hidden"
+                                  id="autoCashoutAmtControls-left">
+                                  <div class="auto-cash-only-mob">
+                                    <div class="mob-hc-bet-action-left ">
+                                      <div class="mob-hc-bet-action">
+                                        <div class="mob-hc-bet-action-left">
+                                          <div class="hc-bet-action">
+                                            <div class="hc-bet-calc-holder">
+                                              <button class="hc-bet-calc-btn left" id="minus-autoCashoutInput-left">
+                                                <span class="hc-bet-calc-btn-inner">
+                                                  <i class="fa-solid fa-minus"></i>
+                                                </span>
+                                              </button>
+                                              <input class="hc-bet-calc-input" type="number" inputmode="text"
+                                                autocomplete="off" maxlength="9" value="2" id="autoCashoutInput-left">
+                                              <button class="hc-bet-calc-btn right" id="plus-autoCashoutInput-left">
+                                                <span class="hc-bet-calc-btn-inner">
+                                                  <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="auto-cash-only-mob-right left">
+                                      <i class="fa-solid fa-check" style=" font-size: 20px;"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hc-bet-actions centerActions bet-section-left-top-content-inner hidden"
+                                  id="autoBetCountControls-left">
+                                  <div class="only-mob-auto-bet ">
+                                    <p class=" only-mob-auto-bet-text left">5</p>
+                                    <p class=" only-mob-auto-bet-text left">10</p>
+                                    <p class=" only-mob-auto-bet-text left">20</p>
+                                    <p class=" only-mob-auto-bet-text left">50</p>
+                                    <p class=" only-mob-auto-bet-text left">99</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="bet-section-left-bottom">
+                                <div class="only-mob-auto-cash-block">
+                                  <div class="only-mob-auto-cash-items" id="autoCashoutTxt-left" style="display: flex;">
+                                    <p class="auto-cashout-text-only">
+                                      Auto Cashout
+                                    </p>
+                                    <i class="fa-solid fa-angle-up"></i>
+                                  </div>
+
+                                  <div class="only-mob-auto-cash-items-close" id="autoCashoutX-left"
+                                    style="display: none;">
+                                    <i class="fa-solid fa-xmark" style=" color: rgba(194, 0, 0);font-size: 30px;"></i>
+                                  </div>
+
+                                  <div class="only-mob-auto-cash-items-close" id="autoCashoutCancel-left"
+                                    style="display: none;">
+                                    <i class="fa-solid fa-xmark" style=" color: rgb(194, 0, 0); font-size: 25px;"></i>
+                                    <p class="auto-bet-from-amount autoCashoutVal-left">x2</p>
+                                  </div>
+                                </div>
+
+                                <div class="only-mob-auto-cash-block">
+                                  <div class="only-mob-auto-cash-items" id="autoBetTxt-left">
+                                    <p class="auto-cashout-text-only">
+                                      Auto Bet
+                                    </p>
+                                    <i class="fa-solid fa-angle-up"></i>
+                                  </div>
+                                  <div class="only-mob-auto-cash-items-close" style="display: none;"
+                                    id="autoBetXicon-left">
+                                    <i class="fa-solid fa-xmark" style="color: rgb(194, 0, 0); font-size: 30px;"></i>
+                                  </div>
+
+                                  <div class="only-mob-auto-cash-items-close" style="display: none;"
+                                    id="autoBetCancel-left">
+                                    <i class="fa-solid fa-xmark" style="color: rgb(194, 0, 0); font-size: 25px;"></i>
+                                    <p class="auto-bet-from-amount autoBetCount-left">98</p>
+                                  </div>
+
+                                </div>
+                              </div>
+
+                              <div class="bet-section-left-top">
+                                <div class="bet-section-left-top-bet">
+                                  <button class="bet-btn-block default pulse-anim" id="bet-left">
+                                    <p class="bet-text-from-btn">Bet</p>
+                                  </button>
+
+                                  <button class="bet-btn-block default   pulse-anim  hidden " id="nextBet-left">
+                                    <p class="bet-text-from-btn">Bet for Next <br />Round </p>
+                                  </button>
+
+                                  <button class="bet-btn-block default  cancel   hidden" id="cancelBet-left">
+                                    <p class="bet-text-from-btn">Cancel </p>
+                                  </button>
+
+                                  <button class="bet-btn-block default  cashout  hidden " id="cashout-left">
+                                    <p class="bet-text-from-btn">Cashout </p>
+                                    <span class="cashout-amount hidden" id="cashout-amt-left">0.15Fun</span>
+                                  </button>
+                                  <div class="double-cashout hidden" id="halfCashout-left">
+                                    <p class="bet-text-from-btn-mini">Cashout</p>
+                                    <p class="bet-text-from-btn-mini">50%</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                            <div class="bet-section-left rightBtn">
+                              <div class="bet-section-left-top-content right">
+                                <div class="bet-section-left-top-content-inner">
+                                  <div class="mob-hc-bet-action">
+                                    <div class="mob-hc-bet-action-left">
+                                      <div class="hc-bet-action">
+                                        <div class="hc-bet-calc-holder">
+                                          <button class="hc-bet-calc-btn left" id="decrement-bet-amt-right">
+                                            <span class="hc-bet-calc-btn-inner">
+                                              <i class="fa-solid fa-minus"></i>
+                                            </span>
+                                          </button>
+                                          <input class="hc-bet-calc-input" type="number" maxlength="9" inputmode="text"
+                                            readonly="" id="bet-amount-right" value="10" />
+                                          <button class="hc-bet-calc-btn right" id="increment-bet-amt-right">
+                                            <span class="hc-bet-calc-btn-inner">
+                                              <i class="fa-solid fa-plus"></i>
+                                            </span>
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hc-bet-actions centerActions bet-section-left-top-content-inner"
+                                  id="betAmtControls-right">
+                                  <div class="hc-bet-action" id="half-bet-amt-right">
+                                    <div class="hc-bet-action-content">
+                                      <p class="hc-bet-action-content-txt">
+                                        1/2
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="hc-bet-action " id="min-bet-amt-right">
+                                    <div class="hc-bet-action-content">
+                                      <p class="hc-bet-action-content-txt">
+                                        Min
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="hc-bet-action" id="max-bet-amt-right">
+                                    <div class="hc-bet-action-content">
+                                      <p class="hc-bet-action-content-txt">
+                                        Max
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="hc-bet-action" id="double-bet-amt-right">
+                                    <div class="hc-bet-action-content">
+                                      <p class="hc-bet-action-content-txt">
+                                        x2
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hc-bet-actions centerActions bet-section-left-top-content-inner hidden"
+                                  id="autoCashoutAmtControls-right">
+                                  <div class="auto-cash-only-mob">
+                                    <div class="mob-hc-bet-action-left ">
+                                      <div class="mob-hc-bet-action">
+                                        <div class="mob-hc-bet-action-left">
+                                          <div class="hc-bet-action">
+                                            <div class="hc-bet-calc-holder">
+                                              <button class="hc-bet-calc-btn left" id="minus-autoCashoutInput-right">
+                                                <span class="hc-bet-calc-btn-inner">
+                                                  <i class="fa-solid fa-minus"></i>
+                                                </span>
+                                              </button>
+                                              <input class="hc-bet-calc-input" type="number" inputmode="text"
+                                                autocomplete="off" maxlength="9" value="2" id="autoCashoutInput-right">
+                                              <button class="hc-bet-calc-btn right" id="plus-autoCashoutInput-right">
+                                                <span class="hc-bet-calc-btn-inner">
+                                                  <i class="fa-solid fa-plus"></i>
+                                                </span>
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="auto-cash-only-mob-right right">
+                                      <i class="fa-solid fa-check" style=" font-size: 20px;"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hc-bet-actions centerActions bet-section-left-top-content-inner hidden"
+                                  id="autoBetCountControls-right">
+                                  <div class="only-mob-auto-bet ">
+                                    <p class=" only-mob-auto-bet-text right">10</p>
+                                    <p class=" only-mob-auto-bet-text right">5</p>
+                                    <p class=" only-mob-auto-bet-text right">20</p>
+                                    <p class=" only-mob-auto-bet-text right">50</p>
+                                    <p class=" only-mob-auto-bet-text right">99</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="bet-section-left-bottom">
+                                <div class="only-mob-auto-cash-block">
+                                  <div class="only-mob-auto-cash-items" id="autoCashoutTxt-right"
+                                    style="display: flex;">
+                                    <p class="auto-cashout-text-only">
+                                      Auto Cashout
+                                    </p>
+                                    <i class="fa-solid fa-angle-up"></i>
+                                  </div>
+
+                                  <div class="only-mob-auto-cash-items-close" id="autoCashoutX-right"
+                                    style="display: none;">
+                                    <i class="fa-solid fa-xmark" style=" color: rgba(194, 0, 0);font-size: 30px;"></i>
+                                  </div>
+
+                                  <div class="only-mob-auto-cash-items-close" id="autoCashoutCancel-right"
+                                    style="display: none;">
+                                    <i class="fa-solid fa-xmark" style=" color: rgb(194, 0, 0); font-size: 25px;"></i>
+                                    <p class="auto-bet-from-amount autoCashoutVal-right">x2</p>
+                                  </div>
+                                </div>
+
+                                <div class="only-mob-auto-cash-block">
+                                  <div class="only-mob-auto-cash-items" id="autoBetTxt-right">
+                                    <p class="auto-cashout-text-only">
+                                      Auto Bet
+                                    </p>
+                                    <i class="fa-solid fa-angle-up"></i>
+                                  </div>
+
+                                  <div class="only-mob-auto-cash-items-close" style="display: none;"
+                                    id="autoBetXicon-right">
+                                    <i class="fa-solid fa-xmark" style="color: rgb(194, 0, 0); font-size: 30px;"></i>
+                                  </div>
+
+                                  <div class="only-mob-auto-cash-items-close" style="display: none;"
+                                    id="autoBetCancel-right">
+                                    <i class="fa-solid fa-xmark" style="color: rgb(194, 0, 0); font-size: 25px;"></i>
+                                    <p class="auto-bet-from-amount autoBetCount-right">98</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="bet-section-left-top">
+                                <div class="bet-section-left-top-bet">
+                                  <button class="bet-btn-block default pulse-anim" id="bet-right">
+                                    <p class="bet-text-from-btn">Bet</p>
+                                  </button>
+
+                                  <button class="bet-btn-block default   pulse-anim  hidden " id="nextBet-right">
+                                    <p class="bet-text-from-btn">Bet for Next <br />Round </p>
+                                  </button>
+
+                                  <button class="bet-btn-block default  cancel   hidden" id="cancelBet-right">
+                                    <p class="bet-text-from-btn">Cancel </p>
+                                  </button>
+
+                                  <button class="bet-btn-block default  cashout  hidden " id="cashout-right">
+                                    <p class="bet-text-from-btn">Cashout </p>
+                                    <span class="cashout-amount hidden" id="cashout-amt-right">0.15Fun</span>
+                                  </button>
+                                  <div class="double-cashout hidden" id="halfCashout-right">
+                                    <p class="bet-text-from-btn-mini">Cashout</p>
+                                    <p class="bet-text-from-btn-mini">50%</p>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <ul class="last-statistics-list">
-                        <li class="last-statistics-list-item">
-                            <div class="last-statistics-round-item orange">x3.81</div>
-                            <p class="last-statistics-round">R1452701</p>
-                        </li>
-                    </ul>
+                  </div>
                 </div>
-            </div>
-            <div class="crashplay-layout-mobile-ls">
-                <div class="crashplay-layout-mobile-content-ls">
-                    <div class="user-info">
-                        <div class="balance-text">
-                            <div class="user-id">Balance</div>
-                            <b class="balance-text amount">₹0.00</b>
-                        </div>
-                        <div class="userInfoSettings">
-                            <div class="settingsHolder">
-                                <div class="settingsButton" id="menu-btn">
-                                    <i class="settingButtonIcon fa-solid fa-bars" id="menu-icon"></i>
-                                </div>
-                                <div class="settingsContentHolder hidden" id="menu-holder">
-                                    <div class="settingsContent" id="menu-list">
-                                        <div class="settingsContentHead">
-                                            <div class="settingsContentHeadColumn">
-                                                <div class="settingsContentAvatarHolder">
-                                                    <div class="avatar medium">
-                                                        <img src="/images/avatars/0.png" alt="avatar" class="avatarImg">
-                                                    </div>
-                                                    <div class="changeAvatarButton" id="change-avatar">
-                                                        <i class="fa-solid fa-camera"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="settingsContentHeadChange">
-                                                    <div class="changeUsernameInputHolder">
-                                                        <div class="changeUsernameInputColumn">
-                                                            <input type="text" class="changeUsernameInput" disabled=""
-                                                                placeholder="User_698132" value="">
-                                                        </div>
-                                                        <button class="changeUsernameButton">
-                                                            <i class="fa-solid fa-house"></i>
-                                                            <!-- INSERT THE LINK TO GO TO LOBBY -->
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="settingsContentBody">
-                                            <div class="settingsContentBodyTitle">
-                                                <div class="settingsRow">
-                                                    <div class="settingsRowColumn">
-                                                        <i class="settingsRowIcon fa-solid fa-volume-xmark"
-                                                            id="vol-icon"></i>
-                                                        <span class="settingsRowName truncate">Sound</span>
-                                                    </div>
-                                                    <div class="forOtherGames switcher" id="sound-switch"></div>
-                                                </div>
-                                            </div>
-                                            <div class="settingsRow hasHover">
-                                                <div class="settingsRowColumn history">
-                                                    <i class="settingsRowIcon fa-solid fa-clock-rotate-left"></i>
-                                                    <span class="settingsRowName truncate">history</span>
-                                                </div>
-                                            </div>
-                                            <div class="settingsRow hasHover">
-                                                <div class="settingsRowColumn fairness">
-                                                    <i class=" settingsRowIcon fa-solid fa-scale-balanced"></i>
-                                                    <span class="settingsRowName truncate">fairness</span>
-                                                </div>
-                                            </div>
-                                            <div class="settingsRow hasHover" id="game-rules">
-                                                <div class="settingsRowColumn">
-                                                    <i class="settingsRowIcon fa-solid fa-file-lines"></i>
-                                                    <span class="settingsRowName truncate">Game Rules</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="newPopupHolder avatarPopupHolder hidden" id="avatar-holder">
-                                    <div class="newPopupContent">
-                                        <div class="newPopupHead">
-                                            <h3 class="newPopupTitle">choose avatar</h3>
-                                            <div class="newPopupCloseButton" id="close-avatar-holder">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </div>
-                                        </div>
-                                        <div class="newPopupSection">
-                                            <div class="scrollableContainer">
-                                                <div class="avatarPopupItems">
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/1.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/2.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/3.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/4.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/5.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/6.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/7.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/8.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/9.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/10.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/11.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/12.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/13.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/14.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/15.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/16.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/17.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/18.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/19.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/20.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/21.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/22.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/23.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/24.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/25.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/26.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/27.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/28.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/29.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/30.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/31.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/32.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/33.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/34.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/35.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/36.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/37.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                    <div class="avatarPopupItem">
-                                                        <div class="avatar big"><img src="/images/avatars/38.png"
-                                                                alt="avatar" class="avatarImg">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="crashplay-game">
-                        <div class="logo-block">
-                            <img src="images/firstBalloon.2c6563e67c90c87c0aa1.png" alt="Logo">
-                        </div>
-                        <div class="allCashOutUsersHolder"></div>
-                        <span class="crush-counting-info-text  counter hidden"></span>
-                        <span class="crush-counting-info-text crash-result centered hidden"></span>
-                        <div class="red-hot-line-timer-layer">
-                            <div class="red-hot-line-timer">
-                                <div class="red-hot-line-timer-thumbs">
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item inactive"></span>
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item"></span>
-                                    <span class="thumb-item"></span>
-                                    <p class="red-hot-line-timer-count"></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="crashplay-game-container-canvas" id="canvas-container">
-                        </div>
-                        <div class="game-notification-wrapper"></div>
-                    </div>
-                    <div class="crashplay-layout-mobile-stats-ls">
-                        <div class="bets-scores">
-                            <div data-round="1449848" class="bets-scores-item orange">x5.16</div>
-                            <div data-round="1449847" class="bets-scores-item orange">x16.07</div>
-                            <div data-round="1449846" class="bets-scores-item orange">x16.95</div>
-                            <div data-round="1449845" class="bets-scores-item">x1.46</div>
-                            <div data-round="1449844" class="bets-scores-item orange">x14.24</div>
-                            <div data-round="1449843" class="bets-scores-item">x1.22</div>
-                            <div data-round="1449842" class="bets-scores-item blue">x53.59</div>
-                            <div data-round="1449841" class="bets-scores-item orange">x4.12</div>
-                            <div data-round="1449840" class="bets-scores-item blue">x39.73</div>
-                            <div data-round="1449839" class="bets-scores-item orange">x2.32</div>
-                            <div data-round="1449838" class="bets-scores-item orange">x2.88</div>
-                            <div data-round="1449837" class="bets-scores-item orange">x3.97</div>
-                            <div data-round="1449836" class="bets-scores-item">x1.55</div>
-                            <div data-round="1449835" class="bets-scores-item orange">x6.12</div>
-                            <div data-round="1449834" class="bets-scores-item">x1.85</div>
-                            <div data-round="1449833" class="bets-scores-item orange">x2.76</div>
-                            <div data-round="1449832" class="bets-scores-item">x1.22</div>
-                            <div data-round="1449831" class="bets-scores-item">x1.04</div>
-                            <div data-round="1449830" class="bets-scores-item">x1.23</div>
-                            <div data-round="1449829" class="bets-scores-item">x1.82</div>
-                        </div>
-                        <div class="statistics-area">
-                            <div class="statistics-navigation" id="prev-history">
-                                <span class="statistics-text">Previous</span>
-                                <i class="statistics-img fa-solid fa-clock-rotate-left"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bet-section-holder">
-                        <div class="bets-actions">
-                            <div class="bets-actions-betting-form left" data-input-wrapper="true">
-                                <div class="bets-actions-betting-range left">
-                                    <div class="bets-amount-input-wrapper">
-                                        <div class="bets-btn-icon" id="decrement-bet-amt-left" data-action="decrement">
-                                            <span>-</span>
-                                        </div>
-                                        <div class="bets-amount-input-label">
-                                            <input class="bets-amount-input text-center" id="bet-amount-left"
-                                                inputmode="decimal" data-mobile-numpad="true" type="number" value="10">
-                                        </div>
-                                        <div class="bets-btn-icon " id="increment-bet-amt-left" data-action="increment">
-                                            <span>+</span>
-                                        </div>
-                                        <div class="bets-btn-icon reset" id="reset-bet-amt-left" data-action="reset"
-                                            style="margin-left: 5px; font-size: small;">
-                                            <span><i class="fa-solid fa-arrow-rotate-left"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="bets-action-suggestion">
-                                        <div class="bet-suggestion-item" id="ten-left">10</div>
-                                        <div class="bet-suggestion-item" id="fifty-left">50</div>
-                                        <div class="bet-suggestion-item" id="hundred-left">100</div>
-                                        <div class="bet-suggestion-item" id="five-hundred-left">500</div>
-                                    </div>
-                                </div>
-                                <div class="bets-actions-betting-form-bottom">
-                                    <div class="betActionsInner left">
-                                        <button class="primary-btn left start">
-                                            <span class="">Bet</span>
-                                        </button>
-                                        <button class="primary-btn left next start hidden">
-                                            <span class="">Next Bet</span>
-                                        </button>
-                                        <button class="primary-btn left cashout hidden">
-                                            <span class="only-child">Cash out</span>
-                                            <p class="primary-btn-text" id="left_cashout_amt">1.00</p>
-                                        </button>
-                                        <button class="primary-btn left cancel hidden">
-                                            <span class="">cancel</span>
-                                        </button>
-                                        <button class="primary-btn left wait hidden" disabled="">
-                                            <span class="">wait</span>
-                                        </button>
-                                    </div>
-                                    <div class="bets-cashout-action left">
-                                        <div class="bets-cashout-action-text">
-                                            <span>x </span>
-                                            <input class="bets-cashout-input left" inputmode="decimal"
-                                                data-mobile-numpad="true" type="number" value="0">
-                                        </div>
-                                        <div class="add-bet-icon" id="auto-bet-icon-left">
-                                            <i class="fa-solid fa-repeat"></i>
-                                        </div>
-                                        <div class="add-bet-icon " style="display: none;"
-                                            id="autobet-count-holder-left">
-                                            10
-                                        </div>
-                                        <div class="bets-cashout-action-check left disabled">
-                                            <div class="check-indicator left"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bets-popup hidden" id="auto-bet-popup-left">
-                                    <div class="bets-popup-heading">
-                                        <span class="betsPopupName">Round</span>
-                                        <i class="fa-solid fa-xmark" id="close-autobet-popup-left"
-                                            style="cursor: pointer;"></i>
-                                    </div>
-                                    <div class="betTotalRow">
-                                        <div class="betTotalRowColumn">
-                                            <span class="betTotalRowText">Bet:</span>
-                                            <span class="betTotalRowText money" id="autobet-amt-left">10.00֏</span>
-                                        </div>
-                                        <div class="betTotalRowColumn">
-                                            <span class="betTotalRowText">TOTAL: </span>
-                                            <span class="betTotalRowText money" id="total-amt-bet-left">0.00֏</span>
-                                        </div>
-                                    </div>
-                                    <div class="bets-mobile-suggestion">
-                                        <div class="bet-mobile-item left" data-value="5">5</div>
-                                        <div class="bet-mobile-item left" data-value="10">10</div>
-                                        <div class="bet-mobile-item left" data-value="20">20</div>
-                                        <div class="bet-mobile-item left" data-value="50">50</div>
-                                        <div class="bet-mobile-item left" data-value="100">100</div>
-                                        <div class="bet-mobile-item left buttonItem" id="autobet-ok-left">Ok</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bets-actions-betting-form right" data-input-wrapper="true">
-                                <div class="bets-actions-betting-range right">
-                                    <div class="bets-amount-input-wrapper">
-                                        <div class="bets-btn-icon" id="decrement-bet-amt-right" data-action="decrement">
-                                            <span>-</span>
-                                        </div>
-                                        <div class="bets-amount-input-label">
-                                            <input class="bets-amount-input text-center" id="bet-amount-right"
-                                                inputmode="decimal" data-mobile-numpad="true" type="number" value="10">
-                                        </div>
-                                        <div class="bets-btn-icon decrease" id="increment-bet-amt-right"
-                                            data-action="increment">
-                                            <span>+</span>
-                                        </div>
-                                        <div class="bets-btn-icon reset" id="reset-bet-amt-right" data-action="reset"
-                                            style="margin-left: 5px; font-size: small;">
-                                            <span><i class="fa-solid fa-arrow-rotate-left"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="bets-action-suggestion">
-                                        <div class="bet-suggestion-item" id="ten-right">10</div>
-                                        <div class="bet-suggestion-item" id="fifty-right">50</div>
-                                        <div class="bet-suggestion-item" id="hundred-right">100</div>
-                                        <div class="bet-suggestion-item" id="five-hundred-right">500</div>
-                                    </div>
-                                </div>
-                                <div class="bets-actions-betting-form-bottom">
-                                    <div class="betActionsInner right">
-                                        <button class="primary-btn right start">
-                                            <span class="">Bet</span>
-                                        </button>
-                                        <button class="primary-btn right next start hidden">
-                                            <span class="">Next Bet</span>
-                                        </button>
-                                        <button class="primary-btn right cashout hidden">
-                                            <span class="only-child">Cash out</span>
-                                            <p class="primary-btn-text" id="right_cashout_amt">1.00</p>
-                                        </button>
-                                        <button class="primary-btn right cancel hidden">
-                                            <span class="">cancel</span>
-                                        </button>
-                                        <button class="primary-btn right wait hidden" disabled="">
-                                            <span class="">wait</span>
-                                        </button>
-                                    </div>
-                                    <div class="bets-cashout-action right">
-                                        <div class="bets-cashout-action-text">
-                                            <span>x </span>
-                                            <input class="bets-cashout-input right" inputmode="decimal"
-                                                data-mobile-numpad="true" type="number" value="0">
-                                        </div>
-                                        <div class="add-bet-icon" id="auto-bet-icon-right">
-                                            <i class="fa-solid fa-repeat"></i>
-                                        </div>
-                                        <div class="add-bet-icon " style="display: none;"
-                                            id="autobet-count-holder-right">
-                                            10
-                                        </div>
-                                        <div class="bets-cashout-action-check right disabled">
-                                            <div class="check-indicator right"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bets-popup hidden" id="auto-bet-popup-right">
-                                    <div class="bets-popup-heading">
-                                        <span class="betsPopupName">Round</span>
-                                        <i class="fa-solid fa-xmark" id="close-autobet-popup-right"
-                                            style="cursor: pointer;"></i>
-                                    </div>
-                                    <div class="betTotalRow">
-                                        <div class="betTotalRowColumn">
-                                            <span class="betTotalRowText">Bet:</span>
-                                            <span class="betTotalRowText money" id="autobet-amt-right">10.00֏</span>
-                                        </div>
-                                        <div class="betTotalRowColumn">
-                                            <span class="betTotalRowText">TOTAL: </span>
-                                            <span class="betTotalRowText money" id="total-amt-bet-right">0.00֏</span>
-                                        </div>
-                                    </div>
-                                    <div class="bets-mobile-suggestion">
-                                        <div class="bet-mobile-item right" data-value="5">5</div>
-                                        <div class="bet-mobile-item right" data-value="10">10</div>
-                                        <div class="bet-mobile-item right" data-value="20">20</div>
-                                        <div class="bet-mobile-item right" data-value="50">50</div>
-                                        <div class="bet-mobile-item right" data-value="100">100</div>
-                                        <div class="bet-mobile-item right buttonItem" id="autobet-ok-right">Ok</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="crashplay-layout-mobile-left-ls hidden">
-                        <div class="mobile-panel">
-                            <div class="close-mobile-panel">
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-                            <div class="bets-info-column">
-                                <div class="bets-tabs-filled">
-                                    <div class="bets-tabs-filled-wrapper">
-                                        <div class="bets-tabs-filled-btn active" data-tab="1">
-                                            <span class="tab-text truncate" title="all bets">all bets</span>
-                                        </div>
-                                        <div class="bets-tabs-filled-btn" data-tab="2">
-                                            <span class="tab-text truncate" title="my bets">my bets</span>
-                                        </div>
-                                        <div class="bets-tabs-filled-btn" data-tab="3">
-                                            <span class="tab-text truncate" title="highest">highest</span>
-                                        </div>
-                                        <!-- <span class="bets-tabs-floating"></span> -->
-                                    </div>
-                                </div>
-                                <div class="bets-panel" data-tab="1">
-                                    <div class="bets-table">
-                                        <div class="bets-table-heading-holder">
-                                            <div class="bets-table-heading">
-                                                <div class="bets-table-col heading-col">Player</div>
-                                                <div class="bets-table-col heading-col">bet</div>
-                                                <div class="bets-table-col heading-col">x</div>
-                                                <div class="bets-table-col heading-col">Win</div>
-                                            </div>
-                                        </div>
-                                        <div class="bets-table-body" id="allBetsTableBody"></div>
-                                    </div>
-                                </div>
-                                <div class="bets-panel hidden" data-tab="2">
-                                    <div class="bets-table">
-                                        <div class="bets-table-heading-holder">
-                                            <div class="bets-table-heading">
-                                                <div class="bets-table-col heading-col">Date</div>
-                                                <div class="bets-table-col heading-col">Bet</div>
-                                                <div class="bets-table-col heading-col">x</div>
-                                                <div class="bets-table-col heading-col">Win</div>
-                                            </div>
-                                        </div>
-                                        <div class="bets-table-body" id="myBetsTableBody"></div>
-                                    </div>
-                                </div>
-                                <div class="bets-panel hidden" data-tab="3">
-                                    <div class="bets-table">
-                                        <div class="bets-table-heading">
-                                            <div class="bets-table-col heading-col">Date</div>
-                                            <div class="bets-table-col heading-col bold count-col">x</div>
-                                            <div class="bets-table-col heading-col hero-color win-col">fairness</div>
-                                        </div>
-                                        <div class="bets-table-body" id="highestTableBody"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="strike-history-row-wrapper">
+                  <ul class="strike-history-row"></ul>
                 </div>
-            </div>
-            <div class="fairness-popup-holder hidden">
-                <div class="fairness-popup-content" style="height: 585px;">
-                    <div class="fairness-popup-head">
-                        <div class="fairness-popup-head-column">
-                            <i class="fairness-popup-head-icon fa-solid fa-circle-info"></i>
-                            <span class="fairness-popup-head-text">Game Rules</span>
-                        </div>
-                        <div class="fairness-popup-head-column close">
-                            <div class="fairness-popup-close">
-                                <i class="fairness-popup-close fa-solid fa-xmark"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fairness-popup-section">
-                        <div class="fairness-popup-section-content">
-                            <div class="fairness-hash-row">
-                                <div class="fairness-hash-row-column htmlContent">
-                                    <p><strong>Description</strong></p>
-                                    <p>Crash is an online game where you can place stakes on a rapidly increasing
-                                        multiplier.&nbsp;</p>
-                                    <p>The objective of the game is to strategically cashout before the multiplier
-                                        crashes.&nbsp;</p>
-                                    <p>If you cashout before the multiplier crashes you receive a payout based on your
-                                        original stake and the final multiplier.</p>
-                                    <p>If the multiplier crashes before you cashout, the stake is lost.</p>
-                                    <p>&nbsp;</p>
-                                    <p><strong>General Information</strong></p>
-                                    <p>Game Type: Crash Game</p>
-                                    <p>The minimum stake is 20.00 ֏</p>
-                                    <p>The maximum stake is 50,000.00 ֏</p>
-                                    <p>Max Exposure: 50000000 ֏ </p>
-                                    <p>RTP: 96%</p>
-                                    <p>Max Multiplier: 10,000x</p>
-                                    <p>&nbsp;</p>
-                                    <p><strong>How to play</strong></p>
-                                    <p>&nbsp;</p>
-                                    <p>Select the stake amount.&nbsp;</p>
-                                    <p>Place the stake before the round starts.</p>
-                                    <p>Watch the multiplier increase.</p>
-                                    <p>Cashout at any time before the multiplier crashes.</p>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Auto</strong></p>
-                                    <p>The game features auto stake and cash-out functionality. Switch on Auto, and
-                                        starting from the next round, stakes will be placed automatically. Switch off
-                                        Auto during the round, the win will be cashed out immediately.&nbsp;<br>For
-                                        cashing out automatically, select your target multiplier and switch on the auto
-                                        cashout.</p>
-                                    <p><strong>Controls</strong></p>
-                                    <p><br>“Start” buttons are used to place stakes.&nbsp;</p>
-                                    <p>“-” “+” or suggested stake amounts can be used to change the stake amount.</p>
-                                    <p>"Sound" button allows you to change the in-game sound settings.</p>
-                                    <p>“History” opens your stake history.</p>
-                                    <p>"Information" button opens the game rules and controls section.</p>
-                                    <p>"Balance" label shows the current balance.</p>
-                                    <p><br><br>&nbsp;</p>
-                                    <p><strong>Game Interruptions</strong><br><br><strong>Game Recovery</strong><br>If
-                                        the game is interrupted due to a loss of connection, the next time the player
-                                        accesses the game, the unfinished game will be automatically resumed at the
-                                        state it was interrupted immediately before the
-                                        interruption.<br><br><strong>Cancelation</strong></p>
-                                    <p>If the game has been canceled independently from the player, the moment of the
-                                        cancelation is considered to be the end of the game. Any funds accumulated will
-                                        be automatically returned to the player.</p>
-                                    <p>In the event of a malfunction, all stakes and wins are void.<br>&nbsp;</p>
-                                    <p>Version: 1.2.89&nbsp;</p>
+                <div class="numpad-wr-for-outside-click">
+                  <div class="numpad-wrapper">
+                    <div class="numpad-holder">
+                      <div class="num-head-row-holder">
+                        <div class="numb-calculate-container">
+                          <div class="calc-result-numb-row">
+                            <div class="calc-result-numb-row-bg">
+                              <div class="num-head-button-top">
+                                <div class="num-head-button-inner">
+                                  <span class="left-button-item">-</span>
                                 </div>
+                              </div>
+                              <div class="middle-container-numb">
+                                <span class="money-text"></span>
+                              </div>
+                              <div class="num-head-button-top">
+                                <div class="num-head-button-inner">
+                                  <span class="left-button-item">+</span>
+                                </div>
+                              </div>
                             </div>
+                          </div>
                         </div>
+                        <div class="num-head-button">
+                          <button class="button">OK</button>
+                        </div>
+                      </div>
+                      <div class="num-button-wrapper">
+                        <div class="num-button-holder">
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">1</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">2</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">3</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">4</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">5</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">6</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">7</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">8</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">9</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">.</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <span class="boxes-text">0</span>
+                            </div>
+                          </div>
+                          <div class="nub-buttons">
+                            <div class="nub-buttons-inner">
+                              <i class="ui-lib-backspace boxes-icon"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+            <div class="pgc-game-controllers close" id="resultsTab">
+              <div class="pgc-game-controllers-head">
+                <i class="fa-regular fa-file-lines" style="color: rgb(255, 255, 255)"></i><span
+                  class="pgc-game-controllers-head-text">Game Result </span>
+                <button class="pgc-popup-close" id="close_res_tab">
+                  <i class="fa-solid fa-xmark" style="color: rgb(255, 255, 255)"></i>
+                </button>
+              </div>
+              <div class="pgc-game-controllers-content">
+                <div class="scroll-holder">
+                  <div class="scrollable-container">
+                    <div class="pgc-result-has-last-card-holder-mobile">
+                      <div class="pgc-results-fairness-check-rows-wr">
+                        <div class="pgc-results-fairness-check-row title">
+                          <div class="pgc-results-fairness-check-column">
+                            <span class="pgc-results-fairness-check-text">Round ID</span>
+                          </div>
+                          <div class="pgc-results-fairness-check-column">
+                            <span class="pgc-results-fairness-check-text">Result</span>
+                          </div>
+                          <div class="pgc-results-fairness-check-column">
+                            <span class="pgc-results-fairness-check-text">Check</span>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485764</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">Upcoming</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485761</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">Upcoming</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485756</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">Upcoming</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485740</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">Upcoming</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485725</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">Upcoming</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485717</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <div class="res-loading-block">
+                              <div class="res-loading-block-circle"></div>
+                              <div class="res-loading-block-circle"></div>
+                              <div class="res-loading-block-circle"></div>
+                            </div>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485710</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.53</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485698</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485692</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x7.66</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485684</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x15.64</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485676</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.62</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485650</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x2.06</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485644</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x4.77</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485635</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.5</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485624</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x2.9</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485615</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.76</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485609</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x135.05</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485601</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.32</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485594</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x2.15</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485590</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x3.89</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485582</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x3.49</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485578</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.24</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485566</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.42</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485546</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x2.18</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485542</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.5</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485523</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.93</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485514</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.02</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485506</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x4.43</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485501</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x26.35</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485475</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.14</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485461</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x18.9</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485453</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x2.14</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485439</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x2.52</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485430</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.05</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485427</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x154.85</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485416</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x4.47</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485409</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.64</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485401</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x21.6</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485393</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1.44</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                        <div class="results-fairness-check-row">
+                          <div class="results-fairness-check-column">
+                            <span class="results-fairness-check-id">10485387</span>
+                          </div>
+                          <div class="results-fairness-check-column">
+                            <p class="res-row-text-upcoming">x1</p>
+                          </div>
+                          <div class="results-fairness-check-column check">
+                            <i class="icon-security results-fairness-check-icon"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pgc-game-controllers close" id="betsTab">
+              <div class="pgc-game-controllers-head">
+                <i class="fa-solid fa-coins" style="color: rgb(255, 255, 255)"></i>
+                <span class="pgc-game-controllers-head-text">Bets </span>
+                <button class="pgc-popup-close" id="close_allBet_tab">
+                  <i class="fa-solid fa-xmark" style="color: rgb(255, 255, 255)"></i>
+                </button>
+              </div>
+              <div class="pgc-game-controllers-content">
+                <div class="scroll-holder">
+                  <div class="scrollable-container">
+                    <div class="winning-table-wrapper">
+                      <div class="winning-table">
+                        <div class="winning-table-head">
+                          <div class="winning-table-head-cell">User</div>
+                          <div class="winning-table-head-cell">Bet (Fun)</div>
+                          <div class="winning-table-head-cell">Odd</div>
+                          <div class="winning-table-head-cell">Win (Fun)</div>
+                        </div>
+                        <div class="winning-table-body-wrapper">
+                          <div class="winning-table-body" id="allBetsTableBody">
+                            <div class="winning-table-body-row">
+                              <div class="winning-table-cell">3****3</div>
+                              <div class="winning-table-cell">0.23</div>
+                              <div class="winning-table-cell">-</div>
+                              <div class="winning-table-cell">-</div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pgc-game-controllers close" id="rulesTab">
+              <div class="pgc-game-controllers-head">
+                <i class="fa-solid fa-marker" style="color: rgb(255, 255, 255)"></i>
+                <span class="pgc-game-controllers-head-text">Game Rules </span>
+                <button class="pgc-popup-close" id="close_rules_tab">
+                  <i class="fa-solid fa-xmark" style="color: rgb(255, 255, 255)"></i>
+                </button>
+              </div>
+              <div class="pgc-game-controllers-content">
+                <div class="scroll-holder">
+                  <div class="scrollable-container">
+                    <div class="tb-game-rules-wrapper">
+                      <p>
+                        Gravity is a continuous game that players can join at
+                        any time. As soon as the game begins, a meteor starts
+                        hurtling from space toward Earth, and the game odd
+                        begins to increase from x1.00. The game odd can
+                        randomly stop at any time. The game odds are
+                        determined using a licensed Random Number Generator
+                        (RNG).
+                      </p>
+                      <p>
+                        The game goal is to click the Cashout button before
+                        the odd stops increasing. The game round is considered
+                        over when the meteor explodes mid-air.
+                      </p>
+                      <p>How to play</p>
+                      <p>
+                        To participate in the game, players must pay an entry
+                        fee(s) before the start of the round and then wait for
+                        the game to begin.
+                      </p>
+                      <p>
+                        The player wins if they successfully click "Cashout"
+                        before the meteor explodes after the round starts.
+                      </p>
+                      <p>
+                        The player loses if they fail to click “Cashout”
+                        before the meteor explodes.
+                      </p>
+                      <p>
+                        The win is calculated by multiplying the buy-in with
+                        the odds at which Cashout was made.
+                      </p>
+                      <p>“Auto Cashout”</p>
+                      <p>
+                        The player can pre-activate the automatic exit mode
+                        (“Auto Cashout”) by entering their preferred odd. In
+                        this case, the system automatically withdraws the
+                        player from the round when the game odd reaches the
+                        amount previously mentioned by the player. However,
+                        the player can also click the “Cashout” button at any
+                        time and leave the game by winning at the current odd.
+                        And if the increase of the game odd stops before
+                        reaching the odd selected by the player, then the
+                        player loses.
+                      </p>
+                      <p>“Auto Bet”</p>
+                      <p>
+                        The players can also use the “Auto Bet” mode. To play
+                        in the “Auto Bet” mode, the player must enter their
+                        preferred amount, activate the “Auto Bet” mode, and
+                        select the number of rounds, after which the system
+                        will automatically place a bet equivalent to the
+                        amount entered by the player during each round. In the
+                        “Auto Bet” mode, the player can also pre-activate the
+                        automatic exit mode (“Auto Cashout”).
+                      </p>
+                      <p>“Cashout 50%”</p>
+                      <p>
+                        The player can also click the “Cashout 50%” button and
+                        win half of their bet amount, which is calculated by
+                        multiplying half of the bet amount by the odd of the
+                        “Cashout” made at that moment. The player continues to
+                        play using the other half of the bet amount. If the
+                        player makes a “Cashout” before the odd stops, they
+                        win the second half of the bet amount, which is
+                        multiplied by the odd of the “Cashout” made at that
+                        moment. In case of not making a “Cashout”, the player
+                        loses, losing the second half of their bet. The
+                        “Cashout 50%” button is also available in the “Auto
+                        Bet” and “Auto Cashout” modes and operates in
+                        accordance with the above-mentioned game conditions.
+                        The “50% Cashout” mode is regulated in the “Settings”
+                        section of the game, i.e., the player can activate or
+                        deactivate the specified mode at any time.
+                      </p>
+                      <p>
+                        The win amount is rounded down to the nearest hundred.
+                        Example: 0.218-&gt;0.21
+                      </p>
+                      <p>RTP-96%</p>
+                      <p>
+                        In case of cancellation, the bet is refunded
+                        automatically.<br /><br />In case of
+                        malfunction/errors, the win is awarded automatically.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pgc-game-controllers close" id="settingsTab">
+              <div class="pgc-game-controllers-head">
+                <i class="fa-solid fa-gear" style="color: rgb(255, 255, 255)"></i>
+                <span class="pgc-game-controllers-head-text">Game Settings </span>
+                <button class="pgc-popup-close" id="close_settings_tab">
+                  <i class="fa-solid fa-xmark" style="color: rgb(255, 255, 255)"></i>
+                </button>
+              </div>
+              <div class="pgc-game-controllers-content">
+                <div class="scroll-holder">
+                  <div class="scrollable-container">
+                    <div class="pgc-settings">
+                      <div class="pgc-setting-row">
+                        <div class="pgc-setting-row-column left">
+                          <span class="pgc-setting-name">Music</span>
+                        </div>
+                        <div class="pgc-setting-row-column right">
+                          <div class="pgc-f-c-min-max-line type-1">
+                            <div class="pgc-range-wrp">
+                              <input min="0" max="1" step="0.1" type="range" class="pgc-inp-range-s" value="0" />
+                            </div>
+                            <div class="pgc-inp-range-line-wr" style="width: 0%">
+                              <div class="pgc-inp-range-line-sp"></div>
+                            </div>
+                          </div>
+                          <i class="icon-music-off pgc-setting-icon"></i>
+                        </div>
+                      </div>
+                      <div class="pgc-setting-row">
+                        <div class="pgc-setting-row-column left">
+                          <span class="pgc-setting-name">Sound</span>
+                        </div>
+                        <div class="pgc-setting-row-column right">
+                          <div class="pgc-f-c-min-max-line type-2">
+                            <div class="pgc-range-wrp">
+                              <input min="0" max="1" step="0.1" type="range" class="pgc-inp-range-s" value="0" />
+                            </div>
+                            <div class="pgc-inp-range-line-wr" style="width: 0%">
+                              <div class="pgc-inp-range-line-sp"></div>
+                            </div>
+                          </div>
+                          <i class="icon-mute pgc-setting-icon"></i>
+                        </div>
+                      </div>
+                      <div class="pgc-setting-row">
+                        <div class="pgc-setting-row-column left">
+                          <span class="pgc-setting-name">50% Cashout</span>
+                        </div>
+                        <div class="pgc-setting-row-column right">
+                          <div class="pgc-switcher active"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pgc-right-side-holder">
+              <div class="pgc-mobile-navigation hidden">
+                <div class="pgc-top-mobile-navigation">
+                  <div class="pgc-mobile-navigation-row">
+                    <div class="pgc-mobile-navigation-title">
+                      <p>Menu</p>
+                    </div>
+                    <div class="pgc-mobile-navigation-icon-b">
+                      <i class="fa-solid fa-xmark" id="closeMenu" style="color: rgb(255, 255, 255)"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="pgc-bottom-mobile-navigation">
+                  <div class="pgc-popup-scrollable-container">
+                    <div class="pgc-nav-rows-wrapper">
+                      <div class="pgc-nav-row" id="lobby">
+                        <div class="pgc-nav-row-icon-b">
+                          <i class="fa-solid fa-home" style="color: rgb(255, 255, 255)"></i>
+                        </div>
+                        <p class="pgc-nav-row-txt">Home</p>
+                      </div>
+                      <div class="pgc-nav-row" id="allResults">
+                        <div class="pgc-nav-row-icon-b">
+                          <i class="fa-regular fa-file-lines" style="color: rgb(255, 255, 255)"></i>
+                        </div>
+                        <p class="pgc-nav-row-txt">Results</p>
+                      </div>
+                      <div class="pgc-nav-row" id="allBets">
+                        <div class="pgc-nav-row-icon-b">
+                          <i class="fa-solid fa-coins" style="color: rgb(255, 255, 255)"></i>
+                        </div>
+                        <p class="pgc-nav-row-txt">Bets</p>
+                      </div>
+                      <div class="pgc-nav-row disabled" id="gameHistory">
+                        <div class="pgc-nav-row-icon-b">
+                          <i class="fa-solid fa-clock-rotate-left" style="color: rgb(255, 255, 255)"></i>
+                        </div>
+                        <p class="pgc-nav-row-txt">History</p>
+                      </div>
+                      <div class="pgc-nav-row" id="gameRules">
+                        <div class="pgc-nav-row-icon-b">
+                          <i class="fa-solid fa-marker" style="color: rgb(255, 255, 255)"></i>
+                        </div>
+                        <p class="pgc-nav-row-txt">Rules</p>
+                      </div>
+                      <div class="pgc-nav-row" id="gameSettings">
+                        <div class="pgc-nav-row-icon-b">
+                          <i class="fa-solid fa-gear" style="color: rgb(255, 255, 255)"></i>
+                        </div>
+                        <p class="pgc-nav-row-txt">Setting</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pgc-right-side-button">
+                <i class="fa-solid fa-bars" style="color: rgb(255, 255, 255)"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="pgc-m-game-structure-bottom">
+            <div class="pgc-m-footer">
+              <div class="pgc-left-m-footer">
+                <p class="pgc-m-footer-txt">Balance</p>
+                <p class="pgc-m-footer-num balance">
+                  500,000 Fun
+                </p>
+              </div>
+              <div class="pgc-center-m-footer">
+                <div class="user-icon-b">
+                  <i class="fa-solid fa-people-group" style="color: rgb(255, 255, 255)"></i>
+                </div>
+                <div class="m-user-count-holder">
+                  <span class="m-user-count-txt">1</span>
+                </div>
+              </div>
+              <div class="pgc-right-m-footer">
+                <p class="pgc-m-footer-txt">Time:</p>
+                <p class="pgc-m-footer-num time">
+                  13:14:24<span class="pgc-m-footer-num-txt"></span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
-
+  </div>
 
 </body>
 

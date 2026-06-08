@@ -1,0 +1,15 @@
+effects.png
+size:1467,478
+filter:Linear,Linear
+pma:true
+balloon02
+bounds:2,7,469,680
+offsets:1,1,471,682
+rotate:90
+balloon03
+bounds:684,2,474,628
+offsets:1,1,476,630
+rotate:90
+balloon05
+bounds:1314,269,151,207
+offsets:1,1,153,210

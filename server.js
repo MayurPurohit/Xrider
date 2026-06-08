@@ -51,7 +51,7 @@ const GET_ROUND_ID = () => {
 const CHECK_ROUND_STATUS = () => {
     //    TODO  get the round status every second and,
     //  update roundStatus
-    let x = GetRandomInteger(1500, 75000);
+    let x = GetRandomInteger(6000, 50000);
 
     setTimeout(() => {
         roundStatus = false;
